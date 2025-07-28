@@ -1,8 +1,8 @@
 # 💄 Belíssima - Cadastro de Revendedoras
 
 Aplicação desenvolvida com **Angular 20**, voltada para facilitar o processo de cadastro de novas revendedoras da marca **Belíssima**. A interface é focada em usabilidade, acessibilidade e alta conversão.
-
 Esta aplicação consome uma **API .NET**, responsável por criar e gerenciar usuários, bem como os dados relacionados ao processo de revenda.
+
 ---
 
 ## 🚀 Como iniciar o projeto
