@@ -61,6 +61,12 @@
   color: white;
 }
 
+.icon-svg {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+}
+
 .etapa-card {
   background-color: white;
   border: none;
@@ -126,6 +132,11 @@
   .icon-emoji {
     font-size: 24px;
   }
+  
+  .icon-svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -158,5 +169,10 @@
   
   .icon-emoji {
     font-size: 20px;
+  }
+  
+  .icon-svg {
+    width: 20px;
+    height: 20px;
   }
 }

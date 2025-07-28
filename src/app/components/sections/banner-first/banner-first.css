@@ -20,6 +20,18 @@
   color: #E299B2;
 }
 
+.brilho-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.check-icon {
+  width: 4px;
+  height: 16px;
+  margin-right: 8px;
+}
+
 .text-content h2 {
   font-family: 'Playfair Display', serif;
   font-size: 48px;

@@ -12,7 +12,7 @@
       <div class="col-lg-3 col-6 text-center" *ngFor="let etapa of etapas">
         <div class="etapa-icon-wrapper">
           <div class="etapa-icon">
-            <span class="icon-emoji">{{ etapa.icon }}</span>
+            <img [src]="etapa.icon" alt="Ícone Etapa {{ etapa.numero }}" class="icon-svg">
           </div>
         </div>
       </div>
