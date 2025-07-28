@@ -85,7 +85,6 @@
   width: auto;
 }
 
-/* Responsividade */
 @media (max-width: 1200px) {
   .text-content {
     padding-left: 60px;

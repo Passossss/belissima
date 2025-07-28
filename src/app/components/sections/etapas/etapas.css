@@ -1,0 +1,162 @@
+.etapas-section {
+  background-color: #F7D6E080;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #7D4A58;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.connection-line {
+  position: absolute;
+  top: 40px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background-color: #7D4A58;
+  z-index: 1;
+}
+
+.etapa-icon-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.etapa-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #7D4A58;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.icon-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+
+.icon-emoji {
+  font-size: 32px;
+  color: white;
+}
+
+.etapa-card {
+  background-color: white;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(125, 74, 88, 0.1);
+  text-align: center;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.etapa-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7D4A58;
+  text-align: center;
+}
+
+.etapa-subtitulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #7D4A58;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.etapa-descricao {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+  }
+  
+  .connection-line {
+    display: none;
+  }
+  
+  .etapa-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-number {
+    font-size: 24px;
+  }
+  
+  .icon-emoji {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .etapa-subtitulo {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+  }
+  
+  .etapa-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .icon-number {
+    font-size: 20px;
+  }
+  
+  .icon-emoji {
+    font-size: 20px;
+  }
+}
