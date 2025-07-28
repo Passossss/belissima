@@ -1,26 +1,35 @@
 <section class="home-section">
-  <div class="content-wrapper">
-    <div class="text-content">
-      <div class="opportunity-tag">
-        <app-brilho-icon></app-brilho-icon>
-        <span>{{ oferta }}</span>
-      </div>
-      <h2>{{ Title }}</h2>
-      <p class="description">{{ description }}</p>
-      <div class="benefits">
-        <div class="benefit-item">
-          <img src="assets/icons/check-icon.svg" alt="Check Icon" class="icon">
-          <span>Sem taxa de adesão</span>
+  <div class="container-fluid">
+    <div class="row align-items-center h-100">
+      <div class="col-lg-6">
+        <div class="text-content">
+          <div class="opportunity-tag d-flex align-items-center">
+            <app-brilho-icon></app-brilho-icon>
+            <span class="ms-2">{{ oferta }}</span>
+          </div>
+          <h2 class="display-4 fw-bold mb-4">Revenda a marca de<br>beleza <span class="highlight">mais amada</span><br>do Brasil</h2>
+          <p class="description lead mb-4">{{ description }}</p>
+          <div class="benefits d-flex flex-wrap gap-4">
+            <div class="benefit-item d-flex align-items-center">
+              <app-check-icon></app-check-icon>
+              <span class="ms-2">Sem taxa de adesão</span>
+            </div>
+            <div class="benefit-item d-flex align-items-center">
+              <app-check-icon></app-check-icon>
+              <span class="ms-2">Margem de até 40%</span>
+            </div>
+          </div>
         </div>
-        <div class="benefit-item">
-          <img src="assets/icons/check-icon.svg" alt="Check Icon" class="icon">
-          <span>Margem de até 40%</span>
+      </div>
+      <div class="col-lg-6">
+        <div class="image-content position-relative h-100">
+          <img src="assets/fundo-arredondado.png" alt="Background" class="background-circle">
+          <img src="assets/menina-solo.png" alt="Mulher com produto de beleza" class="main-image">
         </div>
       </div>
     </div>
-    <div class="image-content">
-      <img [src]="image" alt="Mulher com produto de beleza" class="main-image">
-    <app-informacoes></app-informacoes>
+    <div class="margin-info-card">
+      <app-informacoes></app-informacoes>
     </div>
   </div>
 </section>

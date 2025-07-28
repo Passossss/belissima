@@ -1,12 +1,188 @@
 
-.image-content {
-  position: relative; /* FUNDAMENTAL para que .margin-info-card seja posicionado absolutamente em relação a ele */
-  /* ... outros estilos ... */
+.home-section {
+  height: 469px;
+  background-color: #7D4A58;
+  padding: 48px 0;
+  overflow: hidden;
+  position: relative;
 }
 
-.margin-info-card { /* Esta classe é para posicionar o componente Informacoes */
+.text-content {
+  color: white;
+  padding-left: 120px;
+}
+
+.opportunity-tag {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #E299B2;
+}
+
+.text-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  line-height: 1;
+  color: white;
+  max-width: 437px;
+}
+
+.text-content h2 .highlight {
+  color: #F8BBD9;
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: white;
+  max-width: 486px;
+}
+
+.benefit-item {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+
+.image-content {
+  height: 100%;
+  min-height: 400px;
+  position: relative;
+}
+
+.background-circle {
   position: absolute;
-  top: 10%; /* Figma (Top: 286px em relação à sua seção) */
-  right: 10%; /* Figma (Left: 699px em relação à sua seção) */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.main-image {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  z-index: 2;
+  width: auto;
+  height: 120%;
+  max-height: 550px;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.margin-info-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
+  width: auto;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .text-content {
+    padding-left: 60px;
+  }
+  
+  .main-image {
+    height: 320px;
+    max-height: 320px;
+    right: 3%;
+  }
+  
+  .margin-info-card {
+    right: 10%;
+  }
+}
+
+@media (max-width: 992px) {
+  .home-section {
+    height: auto;
+    min-height: 500px;
+    padding: 24px 0;
+    background: #7D4A58;
+  }
+  
+  .text-content {
+    padding-left: 30px;
+    text-align: center;
+  }
+  
+  .text-content h2 {
+    font-size: 36px;
+    max-width: 100%;
+  }
+  
+  .description {
+    max-width: 100%;
+  }
+  
+  .image-content {
+    margin-top: 2rem;
+    position: relative;
+  }
+  
+  .background-circle {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+  }
+  
+  .main-image {
+    position: relative;
+    right: 0;
+    height: 280px;
+    max-height: 280px;
+    transform: none;
+    object-position: center;
+  }
+  
+  .margin-info-card {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 576px) {
+  .text-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .text-content h2 {
+    font-size: 28px;
+  }
+  
+  .benefits {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  
+  .main-image {
+    height: 200px;
+    max-height: 200px;
+  }
+  
+  .background-circle {
+    height: 250px;
+  }
+  
+  .margin-info-card {
+    position: relative;
+    top: 10px;
+    left: 0;
+    transform: none;
+    text-align: center;
+  }
 }
