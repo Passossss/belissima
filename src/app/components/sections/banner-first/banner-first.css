@@ -1,0 +1,12 @@
+
+.image-content {
+  position: relative; /* FUNDAMENTAL para que .margin-info-card seja posicionado absolutamente em relação a ele */
+  /* ... outros estilos ... */
+}
+
+.margin-info-card { /* Esta classe é para posicionar o componente Informacoes */
+  position: absolute;
+  top: 10%; /* Figma (Top: 286px em relação à sua seção) */
+  right: 10%; /* Figma (Left: 699px em relação à sua seção) */
+  z-index: 10;
+}
