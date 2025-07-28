@@ -1,0 +1,26 @@
+<section class="home-section">
+  <div class="content-wrapper">
+    <div class="text-content">
+      <div class="opportunity-tag">
+        <app-brilho-icon></app-brilho-icon>
+        <span>{{ oferta }}</span>
+      </div>
+      <h2>{{ Title }}</h2>
+      <p class="description">{{ description }}</p>
+      <div class="benefits">
+        <div class="benefit-item">
+          <img src="assets/icons/check-icon.svg" alt="Check Icon" class="icon">
+          <span>Sem taxa de adesão</span>
+        </div>
+        <div class="benefit-item">
+          <img src="assets/icons/check-icon.svg" alt="Check Icon" class="icon">
+          <span>Margem de até 40%</span>
+        </div>
+      </div>
+    </div>
+    <div class="image-content">
+      <img [src]="image" alt="Mulher com produto de beleza" class="main-image">
+    <app-informacoes></app-informacoes>
+    </div>
+  </div>
+</section>
