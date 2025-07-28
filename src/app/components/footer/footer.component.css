@@ -1,0 +1,125 @@
+:host {
+  --cor-ameixa-suave: #7D4A58;
+  --cor-texto: #FFFFFF;
+  --cor-linha: rgba(255, 255, 255, 0.2);
+  --cor-rosa-quartzo: #E299B2;
+}
+
+footer {
+  background-color: var(--cor-ameixa-suave);
+  color: var(--cor-texto);
+  padding: 32px 120px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer-top, .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.footer-bottom {
+  align-items: center;
+}
+
+.footer-info {
+  width: 300px;
+}
+
+.footer-info img {
+  height: 40px;
+  margin-bottom: 16px;
+}
+
+.footer-info p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+}
+
+.links-column strong {
+  display: block;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.links-column p, .links-column a {
+  margin: 0;
+  text-decoration: none;
+  color: var(--cor-texto);
+}
+
+.links-column .contact-details {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.links-column .contact-details:hover {
+  color: var(--cor-rosa-quartzo);
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-icons img {
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+  opacity: 0.8;
+}
+
+.footer-divider {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: var(--cor-linha);
+  margin: 48px 0;
+}
+
+.footer-bottom span, .legal-links a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--cor-rosa-quartzo);
+  text-decoration: none;
+}
+
+.legal-links {
+  display: flex;
+  gap: 24px;
+}
+
+.legal-links a:hover {
+  text-decoration: underline;
+}
