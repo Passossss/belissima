@@ -5,8 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-
-import { Informacoes } from '../informacoes/informacoes';
+import { Informacoes } from "../../informacoes/informacoes";
 
 @Component({
   selector: 'app-cadastro-revendedora',
