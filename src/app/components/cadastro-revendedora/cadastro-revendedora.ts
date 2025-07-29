@@ -6,9 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { Informacoes } from '../informacoes/informacoes';
+
 @Component({
   selector: 'app-cadastro-revendedora',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, Informacoes],
   templateUrl: './cadastro-revendedora.html',
   styleUrl: './cadastro-revendedora.css',
 })
