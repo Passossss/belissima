@@ -37,9 +37,15 @@
 }
 
 .percentage-value {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #7D4A58;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #E299B2;
     white-space: nowrap;
 }
 
