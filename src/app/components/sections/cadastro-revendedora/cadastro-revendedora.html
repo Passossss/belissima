@@ -35,6 +35,7 @@
       <div class="container" style="background-color: #7d4a581a; border-radius: 8px;">
         <form
           [formGroup]="cadastroForm"
+          (ngSubmit)="onSubmit()"
           class="row g-3"
           style="
             margin-top: 32px;
@@ -91,6 +92,9 @@
 
             <select class="form-control form-input-transparent" formControlName="estado">
               <option value="" disabled selected>Selecione</option>
+              <option *ngFor="let estado of estados" [value]="estado.sigla">
+                {{ estado.nome }}
+              </option>
             </select>
           </div>
           <div class="col-md-6">
@@ -129,14 +133,15 @@
           </button>
 
           <div class="d-flex flex-row align-items-center" style="margin-bottom: 50px; margin-top: 1rem;">
-            <label class="custom-checkbox checkbox-label-custom" style="display: flex; align-items: center;">
-              <input type="checkbox" name="termos" id="termos" />
+            <label class="custom-checkbox">
+              <input type="checkbox" formControlName="termos" id="termos" />
               <span class="checkmark"></span>
-              <span style="margin-left: 8px;">
-            <span style="font-size: 11.2px; color: #858585;">
-            Concordo com os termos de uso e política de privacidade.
-            </span>
-              </span>
+            </label>
+            <label 
+              for="termos" 
+              class="checkbox-label-custom"
+              [style]="{'font-size': '11.2px', 'margin-left': '12px'}"
+              >Concordo com os termos de uso e política de privacidade.
             </label>
           </div>
         </form>
