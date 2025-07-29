@@ -40,7 +40,7 @@ footer {
 
 .footer-info p {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 400;
   font-size: 12px;
   line-height: 20px;
@@ -85,17 +85,25 @@ footer {
 .social-icons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+  background-color: #F7D6E033; 
 }
 
 .social-icons img {
-  width: 16px;
-  height: 16px;
-  transition: opacity 0.3s ease;
-}
-
-.social-icons a:hover img {
-  opacity: 0.8;
+  width: 24px; 
+  height: 24px;
 }
 
 .footer-divider {
