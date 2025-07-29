@@ -56,9 +56,11 @@
             </label>
             <input
               class="form-control form-input-transparent"
+              [class.is-invalid]="isInvalid('nome')"
               type="text"
               formControlName="nome"
               placeholder="Seu nome completo"
+              (input)="filtrar($event, 'nome')"
             />
           </div>
           <div class="col-12">
@@ -73,6 +75,7 @@
             >
             <input
               class="form-control form-input-transparent"
+              [class.is-invalid]="isInvalid('email')"
               type="email"
               formControlName="email"
               placeholder="exemplo@email.com"
@@ -90,7 +93,7 @@
               Estado
             </label>
 
-            <select class="form-control form-input-transparent" formControlName="estado">
+            <select class="form-control form-input-transparent" [class.is-invalid]="isInvalid('estado')" formControlName="estado">
               <option value="" disabled selected>Selecione</option>
               <option *ngFor="let estado of estados" [value]="estado.sigla">
                 {{ estado.nome }}
@@ -101,9 +104,11 @@
             <label for="cidade" class="form-label">Cidade</label>
             <input
               class="form-control form-input-transparent"
+              [class.is-invalid]="isInvalid('cidade')"
               type="text"
               formControlName="cidade"
               placeholder="Sua cidade"
+              (input)="filtrar($event, 'cidade')"
             />
           </div>
 
@@ -119,9 +124,12 @@
             >
             <input
               class="form-control form-input-transparent"
+              [class.is-invalid]="isInvalid('numero')"
               type="tel"
               formControlName="numero"
               placeholder="(00) 00000-0000"
+              (input)="formatarTelefone($event)"
+              maxlength="15"
             />
           </div>
 
