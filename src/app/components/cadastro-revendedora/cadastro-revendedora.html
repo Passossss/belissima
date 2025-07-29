@@ -1,0 +1,127 @@
+<div class="d-flex flex-row justify-content-center" style="margin-bottom: 80px; margin-top: 80px;">
+  <div class="" style="width: 679px; height: 738px">
+    <img src="/assets/Mask group.png" alt="" height="738px" />
+  </div>
+  <div
+    class="d-flex flex-column"
+    style="height: 688px; width: 429px; margin-left: 64px"
+  >
+    <div>
+      <p
+        class="text-color"
+        style="font-size: 32px; font-weight: bold; color: #7d4a58"
+      >
+        Conheça sua jornada como revendedora
+      </p>
+      <p style="font-size: 16px">
+        Preencha o formulário abaixo e nossa equipe entrará em contato em até 24
+        horas para confirmar sua parceria conosco.
+      </p>
+      <div class="container" style="background-color: #7d4a581a; border-radius: 8px;">
+        <form
+          [formGroup]="cadastroForm"
+          class="row g-3"
+          style="
+            margin-top: 32px;
+            margin-bottom: 32px;
+            margin-right: 24px;
+            margin-left: 24px;
+          "
+        >
+          <div class="col-12">
+            <label for="nome" class="form-label d-flex align-items-center">
+              <img
+                src="/assets/ícones/icone-pessoa.svg"
+                alt="icone pessoa"
+                class="me-2"
+                style="width: 16px; height: 16px"
+              />
+              Nome Completo
+            </label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="nome"
+              placeholder="Seu nome completo"
+            />
+          </div>
+          <div class="col-12">
+            <label for="email" class="form-label d-flex align-items-center">
+              <img
+                src="/assets/ícones/icone-email.svg"
+                alt="icone email"
+                class="me-2"
+                style="width: 16px; height: 16px"
+              />
+              E-mail</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              formControlName="email"
+              placeholder="exemplo@email.com"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="estado" class="form-label d-flex align-items-center">
+              <img
+                src="/assets/ícones/icone-localizacao.svg"
+                alt="icone icone-localizacao"
+                class="me-2"
+                style="width: 16px; height: 16px"
+              />
+              Estado
+            </label>
+
+            <select class="form-control" formControlName="estado">
+              <option value="" disabled selected>Selecione</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="cidade"
+              placeholder="Sua cidade"
+            />
+          </div>
+
+          <div class="col-12">
+            <label for="numero" class="form-label d-flex align-items-center">
+              <img
+                src="/assets/ícones/icone-pessoa.svg"
+                alt="icone pessoa"
+                class="me-2"
+                style="width: 16px; height: 16px"
+              />
+              Número de contato</label
+            >
+            <input
+              class="form-control"
+              type="tel"
+              formControlName="numero"
+              placeholder="(00) 0000-0000"
+            />
+          </div>
+
+          <button
+            class="btn"
+            type="submit"
+            style="background-color: #7d4a58; color: #fff"
+          >
+            Quero ser revendedora
+          </button>
+
+          <div class="d-flex flex-row align-items-center" style="margin-bottom: 50px;">
+            <input type="checkbox" name="termos" id="termos" class="me-2" />
+            <label for="termos" style="font-size: 12px; ">
+              Concordo com os termos de uso e política de privacidade.
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
