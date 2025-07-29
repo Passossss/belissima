@@ -1,0 +1,33 @@
+<section class="etapas-section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title mb-3">Etapas para se tornar uma revendedora</h2>
+        <p class="section-subtitle">Um processo simples e rápido para você começar a empreender no mundo da beleza</p>
+      </div>
+    </div>
+    
+    <div class="row position-relative mb-4">
+      <div class="connection-line"></div>
+      <div class="col-lg-3 col-6 text-center" *ngFor="let etapa of etapas">
+        <div class="etapa-icon-wrapper">
+          <div class="etapa-icon">
+            <img [src]="etapa.icon" alt="Ícone Etapa {{ etapa.numero }}" class="icon-svg">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" *ngFor="let etapa of etapas">
+        <div class="etapa-card h-100">
+          <div class="card-body text-center p-4">
+            <h4 class="etapa-titulo mb-3">Etapa {{ etapa.numero }}</h4>
+            <h5 class="etapa-subtitulo mb-3">{{ etapa.titulo }}</h5>
+            <p class="etapa-descricao mb-0">{{ etapa.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

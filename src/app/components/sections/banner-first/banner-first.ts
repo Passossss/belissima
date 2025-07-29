@@ -1,12 +1,10 @@
 import { Component, input, Input } from '@angular/core';
 
 import { Informacoes } from "../../informacoes/informacoes";
-import { BrilhoIcon } from "../../icons/brilho-icon/brilho-icon";
-import { CheckIcon } from "../../icons/check-icon/check-icon";
 
 @Component({
   selector: 'app-banner-first',
-  imports: [Informacoes, BrilhoIcon, CheckIcon],
+  imports: [Informacoes],
   templateUrl: './banner-first.html',
   styleUrls: ['./banner-first.css']
 })

@@ -1,37 +1,25 @@
 .informacoes-card {
-    /* Layout do Figma */
     display: flex;
     flex-direction: row; 
     align-items: center; 
     justify-content: center; 
     padding: 8px 12px; 
     gap: 10px; 
-
-    /* Dimensões do Figma */
     width: 63px;    
     height: 52px; 
-
-    /* Estilos visuais */
     background-color: white; 
-    border-radius: 8px; 
-    /* Bordas arredondadas (valor visualmente compatível com a imagem) */
-
-    /* Sombra do Figma (Drop shadow) */
+    border-radius: 8px;
     box-shadow: 4px 4px 4px 0px rgba(161, 161, 161, 0.1);
-
-    /* Para garantir que o texto não quebre se o width for muito pequeno */
     flex-shrink: 0;
     flex-wrap: nowrap;
-
-    /* Ajustes para centralizar o card sobre a imagem no BannerFirstComponent */
-    /* Os estilos de position: absolute, top, right serão aplicados na classe do BannerFirstComponent */
-    /* Ex: .margin-info-card no banner-first.css */
+    min-width: fit-content;
 }
 
 .icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .info-icon {
@@ -45,15 +33,99 @@
     flex-direction: column;
     align-items: flex-start;
     line-height: 1;
+    min-width: 0;
 }
 
 .percentage-value {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #7D4A58;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #E299B2;
+    white-space: nowrap;
 }
 
 .percentage-label {
     font-size: 0.8em;
     color: #555;
+    white-space: nowrap;
+}
+
+.informacoes-card--large {
+    width: auto;
+    height: auto;
+    padding: 12px 16px;
+    min-width: 80px;
+}
+
+.informacoes-card--large .percentage-value {
+    font-size: 1.4em;
+}
+
+.informacoes-card--large .percentage-label {
+    font-size: 1em;
+}
+
+.informacoes-card--small {
+    width: 50px;
+    height: 40px;
+    padding: 6px 8px;
+    gap: 6px;
+}
+
+.informacoes-card--small .percentage-value {
+    font-size: 0.9em;
+}
+
+.informacoes-card--small .percentage-label {
+    font-size: 0.7em;
+}
+
+.informacoes-card--transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.informacoes-card--no-shadow {
+    box-shadow: none;
+}
+
+.informacoes-card--dark {
+    background-color: #7D4A58;
+}
+
+.informacoes-card--dark .percentage-value {
+    color: white;
+}
+
+.informacoes-card--dark .percentage-label {
+    color: #F0A0B0;
+}
+
+.informacoes-card--pink {
+    background-color: #F7D6E0;
+}
+
+.informacoes-card--pink .percentage-value {
+    color: #7D4A58;
+}
+
+.informacoes-card--pink .percentage-label {
+    color: #7D4A58;
+}
+
+.informacoes-card--vertical {
+    flex-direction: column;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 12px;
+}
+
+.informacoes-card--vertical .text-content {
+    align-items: center;
 }
