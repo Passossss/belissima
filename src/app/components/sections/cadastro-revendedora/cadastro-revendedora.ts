@@ -23,18 +23,20 @@ export class CadastroRevendedora {
 
   constructor() {
     this.cadastroForm = this.fb.group({
-      nome: ['', Validators.required],
-      email: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÿ\s]+$/)]],
+      email: ['', [Validators.required, Validators.email]],
       estado: ['', Validators.required],
-      cidade: ['', Validators.required],
-      numero: ['', Validators.required],
+      cidade: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÿ\s]+$/)]],
+      numero: ['', [Validators.required, Validators.pattern(/^[\d\s\(\)\-]+$/)]],
       termos: [false, Validators.requiredTrue],
     });
   }
 
   onSubmit() {
     if (this.cadastroForm.valid) {
-      console.log('Formulário válido:', this.cadastroForm.value);
+      console.log('Formulário válido:', this.cadastroForm.value); 
+      //validando envio e
+      //tratamento dos dados da api do bruno, nao apagar por enquanto                                                       
     } else {
       console.log('Formulário inválido');
       this.cadastroForm.markAllAsTouched();
