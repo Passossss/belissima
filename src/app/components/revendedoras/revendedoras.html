@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Revendedoras</title>
+</head>
+<body>
+    <h1>Revendedoras Cadastradas</h1>
+    
+    <div *ngIf="revendedoras.length === 0">
+        <p>Nenhuma revendedora encontrada.</p>
+    </div>
+    
+    <div *ngIf="revendedoras.length > 0">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let revendedora of revendedoras">
+                    <td>{{ revendedora.id }}</td>
+                    <td>{{ revendedora.nome }}</td>
+                    <td>{{ revendedora.email }}</td>
+                    <td>{{ revendedora.numero }}</td>
+                    <td>{{ revendedora.cidade }}</td>
+                    <td>{{ revendedora.estado }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
