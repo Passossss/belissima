@@ -1,3 +1,10 @@
+<app-revendedora-form
+  *ngIf="mostrarModalEdicao"
+  [revendedora]="revendedoraParaEditar"
+  (save)="salvarEdicao($event)"
+  (cancel)="cancelarEdicao()"
+></app-revendedora-form>
+
 <div class="container my-4">
   <div *ngIf="mostrarConfirmacao" class="d-flex justify-content-end mb-15">
     <div class="text-center" style="margin-right: 29%;">
@@ -43,7 +50,7 @@
           <td>{{ revendedora.cidade }}</td>
           <td>{{ revendedora.estado }}</td>
           <td>
-            <button class="btn btn-sm btn-primary me-2" >Editar</button>
+            <button class="btn btn-sm btn-primary me-2" (click)="editarRevendedora(revendedora)">Editar</button>
             <button class="btn btn-sm btn-danger" (click)="deletarRevendedora(revendedora)">Deletar</button>
           </td>
         </tr>

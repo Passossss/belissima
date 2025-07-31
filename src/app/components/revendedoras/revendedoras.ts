@@ -6,10 +6,11 @@ import { FooterComponent } from "../footer/footer.component";
 import { CadastroService } from '../../core/services/cadastro-service';
 import { Revendedora } from '../../core/models/revendedora';
 import { Informacoes } from '../informacoes/informacoes';
+import { RevendedoraFormComponent } from '../revendedora-form/revendedora-form.component';
 
 @Component({
   selector: 'app-revendedoras',
-  imports: [CommonModule, FormsModule, Informacoes],
+  imports: [CommonModule, FormsModule, Informacoes, RevendedoraFormComponent],
   templateUrl: './revendedoras.html',
   styleUrl: './revendedoras.css'
 })
@@ -18,6 +19,8 @@ export class Revendedoras implements OnInit {
   revendedoras: Revendedora[] = [];
   mostrarConfirmacao = false;
   revendedoraParaDeletar: Revendedora | null = null;
+  mostrarModalEdicao = false;
+  revendedoraParaEditar: Revendedora | null = null;
 
   ngOnInit() {
     this.buscarRevendedoras();
@@ -60,6 +63,27 @@ export class Revendedoras implements OnInit {
   }
 
   editarRevendedora(revendedora: Revendedora){
-
+    this.revendedoraParaEditar = { ...revendedora };
+    this.mostrarModalEdicao = true;
   }
+
+  cancelarEdicao() {
+    this.mostrarModalEdicao = false;
+    this.revendedoraParaEditar = null;
+  }
+  salvarEdicao(revendedora: Revendedora) {
+  if (!revendedora.id) return;
+
+  this.cadastroService.update(revendedora).subscribe({
+    next: () => {
+      console.log('Revendedora atualizada com sucesso!');
+      this.buscarRevendedoras();
+      this.cancelarEdicao();
+    },
+    error: (error) => {
+      console.error('Erro ao atualizar revendedora:', error);
+      this.cancelarEdicao();
+    }
+  });
+}
 }
