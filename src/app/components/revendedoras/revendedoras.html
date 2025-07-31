@@ -1,4 +1,20 @@
 <div class="container my-4">
+  <div *ngIf="mostrarConfirmacao" class="d-flex justify-content-end mb-15">
+    <div class="text-center" style="margin-right: 29%;">
+      <app-informacoes 
+        [mostrarIcone]="true" 
+        [icon]="'assets/icons/delete.svg'"
+        [texto]="'Tem certeza que deseja deletar esta revendedora?'"
+        [texto2]="revendedoraParaDeletar?.nome || ''">
+      </app-informacoes>
+      
+      <div class="d-flex justify-content-center gap-3 mt-1 mb-4">
+        <button type="button" class="btn btn-secondary" (click)="cancelarDelecao()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="confirmarDelecao()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
   <h2 class="mb-4">Revendedoras Cadastradas</h2>
 
   <div *ngIf="!revendedoras" class="alert alert-warning">
@@ -28,7 +44,7 @@
           <td>{{ revendedora.estado }}</td>
           <td>
             <button class="btn btn-sm btn-primary me-2" >Editar</button>
-            <button class="btn btn-sm btn-danger" (click)="deletarRevendedora(revendedora.id)">Deletar</button>
+            <button class="btn btn-sm btn-danger" (click)="deletarRevendedora(revendedora)">Deletar</button>
           </td>
         </tr>
       </tbody>

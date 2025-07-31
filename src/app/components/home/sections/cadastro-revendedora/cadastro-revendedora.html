@@ -32,6 +32,15 @@
         Preencha o formulário abaixo e nossa equipe entrará em contato em até 24
         horas para confirmar sua parceria conosco.
       </p>
+      <div *ngIf="sucesso" class="text-center mt-3">
+        <app-informacoes 
+          variant="Large"
+          texto="Sucesso no Cadastro!"
+          texto2="Cadastro realizado com sucesso! Nossa equipe entrará em contato em breve."
+          [mostrarIcone]="true"
+          icon="/assets/ícones/satisfaction.svg">
+        </app-informacoes>
+      </div>
       <div class="container" style="background-color: #7d4a581a; border-radius: 8px;">
         <form
           [formGroup]="cadastroForm"
@@ -155,15 +164,6 @@
             </label>
           </div>
         </form>
-      </div>
-            <div *ngIf="sucesso" class="text-center mt-3">
-        <app-informacoes 
-          variant="Large"
-          texto="Sucesso no Cadastro!"
-          texto2="Cadastro realizado com sucesso! Nossa equipe entrará em contato em breve."
-          [mostrarIcone]="true"
-          icon="/assets/ícones/satisfaction.svg">
-        </app-informacoes>
       </div>
     </div>
   </div>
