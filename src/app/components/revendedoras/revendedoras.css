@@ -1,0 +1,10 @@
+.custom-header {
+  background-color: #7D4A58 !important;
+  color: white;
+}
+
+.custom-header th {
+  background-color: #7D4A58 !important;
+  color: white;
+  border-color: #6a3f4a;
+}

@@ -1,3 +1,3 @@
 export class Env {
-  url: string = 'https://exemplo.com';
+  static url: string = 'http://localhost:7052';
 }
