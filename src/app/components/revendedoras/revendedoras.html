@@ -1,38 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Revendedoras</title>
-</head>
-<body>
-    <h1>Revendedoras Cadastradas</h1>
-    
-    <div *ngIf="revendedoras.length === 0">
-        <p>Nenhuma revendedora encontrada.</p>
-    </div>
-    
-    <div *ngIf="revendedoras.length > 0">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let revendedora of revendedoras">
-                    <td>{{ revendedora.id }}</td>
-                    <td>{{ revendedora.nome }}</td>
-                    <td>{{ revendedora.email }}</td>
-                    <td>{{ revendedora.numero }}</td>
-                    <td>{{ revendedora.cidade }}</td>
-                    <td>{{ revendedora.estado }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+<div class="container my-4">
+  <h2 class="mb-4">Revendedoras Cadastradas</h2>
+
+  <div *ngIf="!revendedoras" class="alert alert-warning">
+    Nenhuma revendedora encontrada.
+  </div>
+
+  <div *ngIf="revendedoras">
+    <table class="table table-striped table-bordered">
+      <thead class="custom-header">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let revendedora of revendedoras">
+          <td>{{ revendedora.id }}</td>
+          <td>{{ revendedora.nome }}</td>
+          <td>{{ revendedora.email }}</td>
+          <td>{{ revendedora.numero }}</td>
+          <td>{{ revendedora.cidade }}</td>
+          <td>{{ revendedora.estado }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2" >Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="deletarRevendedora(revendedora.id)">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

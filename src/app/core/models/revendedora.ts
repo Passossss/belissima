@@ -1,14 +1,14 @@
 import { EstadoBrasil } from "./enumRevendedora";
 
 export class Revendedora {
-    id?: number; 
+    id?: string; 
     nome: string;
     email: string;
     estado: EstadoBrasil;
     cidade: string;
     numero: string;
 
-    constructor(nome: string, email: string, estado: EstadoBrasil, cidade: string, numero: string, id?: number) {
+    constructor(nome: string, email: string, estado: EstadoBrasil, cidade: string, numero: string, id?: string) {
         this.nome = nome;
         this.email = email;
         this.estado = estado;

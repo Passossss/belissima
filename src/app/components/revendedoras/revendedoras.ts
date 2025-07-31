@@ -8,7 +8,7 @@ import { Revendedora } from '../../core/models/revendedora';
 
 @Component({
   selector: 'app-revendedoras',
-  imports: [CommonModule, FormsModule, FooterComponent, Header],
+  imports: [CommonModule, FormsModule],
   templateUrl: './revendedoras.html',
   styleUrl: './revendedoras.css'
 })
@@ -29,5 +29,22 @@ export class Revendedoras implements OnInit {
         console.error('Erro ao buscar revendedoras:', error);
       }
     });
+  }
+
+  deletarRevendedora(id?: string){
+     if (confirm('Tem certeza que deseja deletar esta revendedora?')) {
+      this.cadastroService.delete(id).subscribe({
+        next: () => {
+          this.buscarRevendedoras();
+        },
+        error: (error) => {
+          console.error('Erro ao deletar revendedora:', error);
+        }
+      });
+    }
+  }
+
+  editarRevendedora(revendedora: Revendedora){
+
   }
 }

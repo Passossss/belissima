@@ -60,7 +60,7 @@ export class CadastroRevendedora {
         },
         error: (error) => {
           this.enviando = false;
-          alert('Erro ao realizar cadastro. Tente novamente.');
+          alert('Erro ao realizar cadastro. Tente novamente.' + error.message);
         }
       });
     } else {

@@ -7,7 +7,7 @@ import { Env } from '../../environments/env';
   providedIn: 'root'
 })
 export class CadastroService {
-  private apiUrl = Env.url + '/api/Revendedoras';
+  private apiUrl ='https://localhost:7052/api/Revendedoras'
 
   constructor(private http: HttpClient){}
 
@@ -27,7 +27,7 @@ export class CadastroService {
     return this.http.put<Revendedora>(`${this.apiUrl}/${revendedora.id}`, revendedora);
   }
 
-  delete(id: string): Observable<void>{
+  delete(id?: string): Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
