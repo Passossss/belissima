@@ -7,7 +7,7 @@ import { Env } from '../../environments/env';
   providedIn: 'root'
 })
 export class CadastroService {
-  private apiUrl ='https://localhost:7052/api/Revendedoras'
+  private apiUrl = Env.url + '/api/Revendedoras';
 
   constructor(private http: HttpClient){}
 
