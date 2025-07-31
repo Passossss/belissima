@@ -8,27 +8,59 @@
         
         <div class="form-field">
           <label for="nome">Nome</label>
-          <input id="nome" formControlName="nome" type="text">
+          <input 
+            id="nome" 
+            formControlName="nome" 
+            type="text"
+            [class.is-invalid]="isInvalid('nome')"
+            (input)="filtrar($event, 'nome')"
+            placeholder="Nome completo">
         </div>
         
         <div class="form-field">
           <label for="email">Email</label>
-          <input id="email" formControlName="email" type="email">
+          <input 
+            id="email" 
+            formControlName="email" 
+            type="email"
+            [class.is-invalid]="isInvalid('email')"
+            placeholder="exemplo@email.com">
         </div>
         
         <div class="form-field">
           <label for="estado">Estado</label>
-          <input id="estado" formControlName="estado" type="text" maxlength="2">
+          <select 
+            id="estado" 
+            formControlName="estado"
+            [class.is-invalid]="isInvalid('estado')">
+            <option value="" disabled>Selecione</option>
+            <option *ngFor="let estado of estados" [value]="estado.sigla">
+              {{ estado.nome }}
+            </option>
+          </select>
         </div>
         
         <div class="form-field">
           <label for="cidade">Cidade</label>
-          <input id="cidade" formControlName="cidade" type="text">
+          <input 
+            id="cidade" 
+            formControlName="cidade" 
+            type="text"
+            [class.is-invalid]="isInvalid('cidade')"
+            (input)="filtrar($event, 'cidade')"
+            placeholder="Sua cidade">
         </div>
         
         <div class="form-field">
           <label for="numero">Telefone</label>
-          <input id="numero" formControlName="numero" type="text">
+          <input 
+            id="numero" 
+            formControlName="numero" 
+            type="text"
+            [class.is-invalid]="isInvalid('numero')"
+            (input)="formatarTelefone($event)"
+            maxlength="15"
+            placeholder="(00) 00000-0000">
         </div>
 
         <div class="form-actions">

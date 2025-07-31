@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Revendedora } from '../../core/models/revendedora';
+import { Revendedora, EstadoBrasil } from '../../core/models/revendedora';
 
 @Component({
   selector: 'app-revendedora-form',
@@ -16,17 +16,20 @@ export class RevendedoraFormComponent implements OnChanges {
   @Output() cancel = new EventEmitter<void>();
 
   form: FormGroup;
+  estados = Object.entries(EstadoBrasil).map(([key, value]) => ({ sigla: key, nome: value }));
   isLoading = false;
   saveSuccess = false;
 
-  constructor(private fb: FormBuilder) {
+  private fb = inject(FormBuilder);
+
+  constructor() {
     this.form = this.fb.group({
       id: [''],
-      nome: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÿ\s]+$/)]],
       email: ['', [Validators.required, Validators.email]],
-      estado: ['', [Validators.required, Validators.maxLength(2)]],
-      cidade: ['', Validators.required],
-      numero: ['', Validators.required]
+      estado: ['', Validators.required],
+      cidade: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÿ\s]+$/)]],
+      numero: ['', [Validators.required, Validators.pattern(/^\(\d{2}\)\s\d{4,5}-\d{4}$/)]],
     });
   }
 
@@ -38,6 +41,7 @@ export class RevendedoraFormComponent implements OnChanges {
 
   onSave(): void {
     if (this.form.invalid) {
+      this.form.markAllAsTouched();
       return;
     }
 
@@ -57,5 +61,35 @@ export class RevendedoraFormComponent implements OnChanges {
 
   onCancel(): void {
     this.cancel.emit();
+  }
+
+  isInvalid(fieldName: string): boolean {
+    const field = this.form.get(fieldName);
+    return !!(field && field.invalid && field.touched);
+  }
+
+  formatarTelefone(event: any): void {
+    let valor = event.target.value;
+
+    valor = valor.replace(/\D/g, '');
+
+    if (valor.length > 11) {
+      valor = valor.slice(0, 11);
+    }
+    if (valor.length <= 2) {
+      valor = valor.replace(/(\d{0,2})/, '($1');
+    } else if (valor.length <= 7) {
+      valor = valor.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    } else {
+      valor = valor.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    }
+    this.form.get('numero')?.setValue(valor, { emitEvent: false });
+  }
+
+  filtrar(event: any, campo: string): void {
+    let valor = event.target.value;    
+    valor = valor.replace(/[^A-Za-zÀ-ÿ\s]/g, '');
+
+    this.form.get(campo)?.setValue(valor, { emitEvent: false });
   }
 }
