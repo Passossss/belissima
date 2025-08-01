@@ -41,6 +41,15 @@
           icon="/assets/ícones/satisfaction.svg">
         </app-informacoes>
       </div>
+      <div *ngIf="emailDuplicado" class="text-center mt-3">
+        <app-informacoes 
+          variant="Large"
+          texto="E-mail já cadastrado!"
+          texto2="Você já preencheu nosso formulário. Aguarde que nossa equipe entrará em contato em breve."
+          [mostrarIcone]="true"
+          icon="/assets/icons/1.svg">
+        </app-informacoes>
+      </div>
       <div class="container" style="background-color: #7d4a581a; border-radius: 8px;">
         <form
           [formGroup]="cadastroForm"

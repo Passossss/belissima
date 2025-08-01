@@ -6,9 +6,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Informacoes } from "../../../informacoes/informacoes";
-import { EstadoBrasil, Revendedora } from '../../../../core/models/revendedora';
+import { Informacoes } from '../../../informacoes/informacoes';
+import { EstadoBrasil } from '../../../../core/models/enumRevendedora';
 import { CadastroService } from '../../../../core/services/cadastro-service';
+import { Revendedora } from '../../../../core/models/revendedora';
 
 @Component({
   selector: 'app-cadastro-revendedora',
@@ -21,6 +22,7 @@ export class CadastroRevendedora {
   estados = Object.entries(EstadoBrasil).map(([key, value]) => ({ sigla: key, nome: value }));
   enviando = false;
   sucesso = false;
+  emailDuplicado = false;
 
   private fb = inject(FormBuilder);
   private cadastroService = inject(CadastroService);
@@ -39,28 +41,49 @@ export class CadastroRevendedora {
   onSubmit() {
     if (this.cadastroForm.valid) {
       this.enviando = true;
+      this.emailDuplicado = false;
       
       const formData = this.cadastroForm.value;
-      const revendedora = new Revendedora(
-        formData.nome,
-        formData.email,
-        formData.estado,
-        formData.cidade,
-        formData.numero
-      );
+      
+      this.cadastroService.getAll().subscribe({
+        next: (revendedoras: any) => {
+          const emailExiste = revendedoras.some((r: any) => r.email === formData.email);
+          
+          if (emailExiste) {
+            this.enviando = false;
+            this.cadastroForm.reset();
+            this.emailDuplicado = true;
+            setTimeout(() => {
+              this.emailDuplicado = false;
+            }, 6500);
+            return;
+          }
+                    const revendedora = new Revendedora(
+            formData.nome,
+            formData.email,
+            formData.estado,
+            formData.cidade,
+            formData.numero
+          );
 
-      this.cadastroService.create(revendedora).subscribe({
-        next: (response) => {
-          this.enviando = false;
-          this.cadastroForm.reset();
-          this.sucesso = true;          
-          setTimeout(() => {
-            this.sucesso = false;
-          }, 6500);
+          this.cadastroService.create(revendedora).subscribe({
+            next: (response: any) => {
+              this.enviando = false;
+              this.cadastroForm.reset();
+              this.sucesso = true;          
+              setTimeout(() => {
+                this.sucesso = false;
+              }, 6500);
+            },
+            error: (error: any) => {
+              this.enviando = false;
+              alert('Erro ao realizar cadastro. Tente novamente.');
+            }
+          });
         },
-        error: (error) => {
+        error: (error: any) => {
           this.enviando = false;
-          alert('Erro ao realizar cadastro. Tente novamente.' + error.message);
+          alert('Erro ao verificar email.');
         }
       });
     } else {
